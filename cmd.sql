@@ -36,4 +36,5 @@
 -- (15,1,1,1,0,1,0,0,0,0,0,0,0,0,0),
 -- (16,1,1,1,1,0,0,0,1,0,0,0,0,0,0);
 
-SELECT * FROM periodic_service;
+SELECT * FROM periodic_service
+WHERE n=16;
