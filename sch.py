@@ -6,16 +6,31 @@ conn = sqlite3.connect('car.db')
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
 
+cursor.execute("SELECT max(n) FROM periodic_service")
+n = cursor.fetchall();
+print(n)
+
+
 # spark plug
 
 #Retrieving data
-s = "2"
+# f = how many frequency service once
+f = 3 
+s = str(f-1)
+
+
 cursor.execute("SELECT spark_plug FROM periodic_service ORDER BY n DESC LIMIT ?", s)
-
-
-#Fetching 1st row from the table
 result = cursor.fetchall();
-print(result)
+z = [sum(t) for t in result]
+print (z)
+total = 0
+for element in z:
+    total += element
+print(total)
+# z = str(result)
+# print (z)
+# z1=re.sub['[(]','',z]
+# print (z1)
 
 #Commit your changes in the database
 conn.commit()
