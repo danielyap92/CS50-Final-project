@@ -1,42 +1,36 @@
 import sqlite3
 
-#Connecting to sqlite
 conn = sqlite3.connect('car.db')
-
-#Creating a cursor object using the cursor() method
 cursor = conn.cursor()
+cursor.execute("SELECT * FROM periodic_service")
+res = cursor.fetchall();
+print(len(res))
+
+car_dict = []
+
+for i in range (len(res)):
+    sch =['n','engine_oil','engine_oil_filter','drain_plug_gasket','spark_plug','air_filter','radiator_coolant','brake_fluid','fuel_filter','transmission_oil_cvt','transmission_oil_filter','gasket_oil_pan','drain_plug','timing_belt_kit']
+    dic = dict(zip(sch,res[i]))
+    car_dict.append(dic)
 
 
-
-current_service_dict ={}
-
-
-# Spark plug
-# f = how many frequency service once
+print(car_dict[0]['n'])
 
 
-def periodic(): 
-    cursor.execute("SELECT spark_plug FROM periodic_service ORDER BY n DESC LIMIT ?", '10' )
-    result = cursor.fetchall();
-    print(result)
-    # z = [sum(t) for t in result]
-    # total = 0
-    # for element in z:
-    #     total += element
-    # if total == 0:
-    #     current_service_dict['spark_plug'] = 1
-    # else:
-    #     current_service_dict['spark_plug'] = 0
-    # print(current_service_dict)
+# previous_service_list = []
 
-periodic()
+# for row in res:
+#     i = 0
+#     print(i)
+#     print(res[i])
+#     i = i + 1
 
+    # previous_service_list.append(
+    #     {
+    #         'engine_oil': row['engine_oil'],
+    #         'engine_oil_filter': row['engine_oil_filter']
+    #     }
+    # )
 
-
-
-
-#Commit your changes in the database
-conn.commit()
-
-#Closing the connection
+# print(previous_service_list)
 conn.close()

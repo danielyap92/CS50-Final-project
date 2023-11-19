@@ -5,27 +5,47 @@
 {% endblock %}
 
 {% block main %}
-<p>testing</p>
-<!-- <table class="table table-bordered">
+<h2>Previous Service Record</h2>
+<table class="table table-bordered">
     <thead>
         <tr>
-          <th scope="col">Symbol</th>
-          <th scope="col">Name</th>
-          <th scope="col">Shares</th>
-          <th scope="col">Price</th>
-          <th scope="col">TOTAL</th>
+          <th scope="col">N</th>
+          <th scope="col">Engine Oil</th>
+          <th scope="col">Engine Oil Filter</th>
+          <th scope="col">Drain Plug Gasket</th>
+          <th scope="col">Spark Plug</th>
+          <th scope="col">Air Filter</th>
+          <th scope="col">Radiator Coolant</th>
+          <th scope="col">Brake Fluid</th>
+          <th scope="col">Fuel Filter</th>
+          <th scope="col">Transmission Oil (CVT)</th>
+          <th scope="col">Transmission Oil Filter</th>
+          <th scope="col">Gasket Oil Pan</th>
+          <th scope="col">Drain Plug</th>
+          <th scope="col">Timing Belt Kit</th>
+          <th scope="col">FEAD Belt</th>
         </tr>
     </thead>
     <tbody>
-        {% for stock in onhandstocks %}
+        {% for history in histories %}
         <tr>
-          <th scope="row">{{ stock["symbol"] }}</th>
-          <td>{{ stock["name"] }}</td>
-          <td>{{ stock["shares"] }}</td>
-          <td>{{ stock["price"] }}</td>
-          <td>{{ stock["total"] }}</td>
+          <td>{{ history.n }}</td>
+          <td>{{ history.engine_oil }}</td>
+          <td>{{ history.engine_oil_filter }}</td>
+          <td>{{ history.drain_plug_gasket }}</td>
+          <td>{{ history.spark_plug }}</td>
+          <td>{{ history.air_filter }}</td>
+          <td>{{ history.radiator_coolant }}</td>
+          <td>{{ history.brake_fluid }}</td>
+          <td>{{ history.fuel_filter }}</td>
+          <td>{{ history.transmission_oil_cvt }}</td>
+          <td>{{ history.transmission_oil_filter }}</td>
+          <td>{{ history.gasket_oil_pan }}</td>
+          <td>{{ history.drain_plug }}</td>
+          <td>{{ history.timing_belt_kit }}</td>
+          <td>{{ history.fead_belt }}</td>
         </tr>
         {% endfor %}
     </tbody>
-</table> -->
+</table>
 {% endblock %}
