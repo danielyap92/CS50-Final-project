@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for history in histories  %}
+        {% for history in histories[1:]:  %}
         <tr>
           <td>{{ history.n }}</td>
           <td>{{ history.engine_oil }}</td>
