@@ -29,3 +29,19 @@ def index():
     return render_template("index.html", histories=histories)
     
     conn.close()
+
+@app.route("/next_service")
+def next_service():
+    return render_template("next_service.html")
+
+@app.route("/delete_record")
+def delete_record():
+    return render_template("delete_record.html")
+
+@app.route("/about_me")
+def about_me():
+    return render_template("about_me.html")
+
+@app.route("/index")
+def redirect_index():
+    return redirect("/")
