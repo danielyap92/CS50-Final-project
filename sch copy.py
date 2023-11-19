@@ -6,14 +6,14 @@ conn = sqlite3.connect('car.db')
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
 
-# cursor.execute("SELECT max(n) FROM periodic_service")
-# n = cursor.fetchall();
-# n1 = [sum(t) for t in n]
-# last_number_of_service = int(''.join(map(str, n1)))
-# print("Last number of service: " + str(last_number_of_service))
+cursor.execute("SELECT max(n) FROM periodic_service")
+n = cursor.fetchall();
+n1 = [sum(t) for t in n]
+last_number_of_service = int(''.join(map(str, n1)))
+print("Last number of service: " + str(last_number_of_service))
 
-# current_number_service = last_number_of_service + 1
-# print ("Current number of service: " + str(current_number_service))
+current_number_service = last_number_of_service + 1
+print ("Current number of service: " + str(current_number_service))
 
 current_service_dict ={}
 
@@ -223,21 +223,21 @@ gasket_oil_pan()
 drain_plug()
 timing_belt_kit()
 fead_belt()
-print (current_service_dict)
+# print (current_service_dict)
+# print ('After filter not need to service')
 
-#filter no need service
-# def filter_service(pair):
-#      key, value = pair
-#      if value == 1:
-#         return True
-#      else:
-#           return False
+def filter_service(pair):
+     key, value = pair
+     if value == 1:
+        return True
+     else:
+          return False
 
-# def current_service_list():
-#     service_list = dict(filter(filter_service, current_service_dict.items()))
-#     print (service_list)
+def current_service_list():
+    service_list = dict(filter(filter_service, current_service_dict.items()))
+    print (service_list)
 
-# current_service_list()
+current_service_list()
 
 
 #Commit your changes in the database

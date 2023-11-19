@@ -32,7 +32,8 @@ def index():
 
 @app.route("/next_service")
 def next_service():
-    return render_template("next_service.html")
+    servicedict = {'engine_oil': 'checked', 'engine_oil_filter': 'checked', 'drain_plug_gasket': 'checked', 'spark_plug': 'unchecked', 'air_filter': 'checked', 'raidator_coolant': 'unchecked', 'brake_fluid': 'checked', 'fuel_filter': 'unchecked', 'transmission_oil_cvt': 'unchecked', 'transmission_oil_filter': 'unchecked', 'gasket_oil_pan': 'unchecked', 'drain_plug': 'unchecked', 'timing_belt_kit': 'unchecked', 'timing_belt_kit': 'unchecked'}
+    return render_template("next_service.html", servicedict=servicedict)
 
 @app.route("/delete_record")
 def delete_record():
