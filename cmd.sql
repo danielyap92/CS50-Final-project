@@ -35,4 +35,4 @@
 -- (14,1,1,1,0,0,0,0,0,0,0,0,0,0,0),
 -- (15,1,1,1,0,1,0,0,0,0,0,0,0,0,0),
 -- (16,1,1,1,1,0,0,0,1,0,0,0,0,0,0);
-SELECT gasket_oil_pan FROM periodic_service ORDER BY n DESC LIMIT 11;
+SELECT * FROM periodic_service;

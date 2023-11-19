@@ -232,11 +232,12 @@ def filter_service(pair):
      else:
           return False
 
-def service_list():
+def current_service_list():
     service_list = dict(filter(filter_service, current_service_dict.items()))
     print (service_list)
 
-service_list()
+current_service_list()
+
 
 #Commit your changes in the database
 conn.commit()
