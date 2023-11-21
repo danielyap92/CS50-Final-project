@@ -6,14 +6,14 @@ conn = sqlite3.connect('car.db')
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
 
-# cursor.execute("SELECT max(n) FROM periodic_service")
-# n = cursor.fetchall();
-# n1 = [sum(t) for t in n]
-# last_number_of_service = int(''.join(map(str, n1)))
-# print("Last number of service: " + str(last_number_of_service))
+cursor.execute("SELECT max(n) FROM periodic_service")
+n = cursor.fetchall();
+n1 = [sum(t) for t in n]
+last_number_of_service = int(''.join(map(str, n1)))
+print("Last number of service: " + str(last_number_of_service))
 
-# current_number_service = last_number_of_service + 1
-# print ("Current number of service: " + str(current_number_service))
+current_number_service = last_number_of_service + 1
+print ("Current number of service: " + str(current_number_service))
 
 current_service_dict ={}
 
@@ -241,7 +241,7 @@ print (current_service_dict)
 
 
 #Commit your changes in the database
-conn.commit()
+#conn.commit()
 
 #Closing the connection
 conn.close()

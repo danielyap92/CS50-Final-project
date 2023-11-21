@@ -1,21 +1,77 @@
-list1 = ['engine_oil', 'engine_oil_filter', 'drain_plug_gasket', 'air_filter', 'brake_fluid']
-list = ['engine_oil', 'engine_oil_filter']
+list = ['engine_oil', 'engine_oil_filter', 'timing_belt_kit', 'fead_belt']
 
-list2 = []
+nsil = []
+
 
 if 'engine_oil' in list:
-    list2.append(1)
+    nsil.append(1)
 else:
-    list2.append(0)
+    nsil.append(0)
 
 if 'engine_oil_filter' in list:
-    list2.append(1)
+    nsil.append(1)
 else:
-    list2.append(0)
+    nsil.append(0)
 
 if 'drain_plug_gasket' in list:
-    list2.append(1)
+    nsil.append(1)
 else:
-    list2.append(0)
+    nsil.append(0)
 
-print(list2)
+if 'spark_plug' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'air_filter' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'radiator_coolant' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'brake_fluid' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'fuel_filter' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'transmission_oil_cvt' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'transmission_oil_filter' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'gasket_oil_pan' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'drain_plug' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'timing_belt_kit' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+if 'fead_belt' in list:
+    nsil.append(1)
+else:
+    nsil.append(0)
+
+
+print(nsil)

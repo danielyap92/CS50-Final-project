@@ -2,6 +2,7 @@ import os
 import sqlite3
 from flask import Flask, flash, redirect, render_template, request
 
+
 app = Flask(__name__)
 
 
@@ -34,7 +35,7 @@ def index():
 def next_service():
     servicedict = {'engine_oil': 'checked', 'engine_oil_filter': 'checked', 'drain_plug_gasket': 'checked', 'spark_plug': 'unchecked', 'air_filter': 'checked', 'raidator_coolant': 'unchecked', 'brake_fluid': 'checked', 'fuel_filter': 'unchecked', 'transmission_oil_cvt': 'unchecked', 'transmission_oil_filter': 'unchecked', 'gasket_oil_pan': 'unchecked', 'drain_plug': 'unchecked', 'timing_belt_kit': 'unchecked', 'timing_belt_kit': 'unchecked'}
     if request.method == "POST":
-        list = request.form.getlist("engine_oil")
+        list = request.form.getlist("service_checkbox")
         print (list)
         return render_template("next_service.html", servicedict=servicedict) 
     #     if request.form.get("engine_oil"):
