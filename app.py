@@ -1,6 +1,7 @@
-import os
+# import os
 import sqlite3
 from flask import Flask, flash, redirect, render_template, request
+from sch import last_number_of_service, current_number_service, prechecked_service_list
 
 
 app = Flask(__name__)
@@ -33,11 +34,80 @@ def index():
 
 @app.route("/next_service", methods=["GET", "POST"])
 def next_service():
-    servicedict = {'engine_oil': 'checked', 'engine_oil_filter': 'checked', 'drain_plug_gasket': 'checked', 'spark_plug': 'unchecked', 'air_filter': 'checked', 'raidator_coolant': 'unchecked', 'brake_fluid': 'checked', 'fuel_filter': 'unchecked', 'transmission_oil_cvt': 'unchecked', 'transmission_oil_filter': 'unchecked', 'gasket_oil_pan': 'unchecked', 'drain_plug': 'unchecked', 'timing_belt_kit': 'unchecked', 'timing_belt_kit': 'unchecked'}
     if request.method == "POST":
         list = request.form.getlist("service_checkbox")
-        print (list)
-        return render_template("next_service.html", servicedict=servicedict) 
+        nsil = []
+        if 'engine_oil' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'engine_oil_filter' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'drain_plug_gasket' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'spark_plug' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'air_filter' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'radiator_coolant' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'brake_fluid' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'fuel_filter' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'transmission_oil_cvt' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'transmission_oil_filter' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'gasket_oil_pan' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'drain_plug' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'timing_belt_kit' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+
+        if 'fead_belt' in list:
+            nsil.append(1)
+        else:
+            nsil.append(0)
+        print(nsil)
+        return render_template("next_service.html", prechecked_service_list=prechecked_service_list) 
     #     if request.form.get("engine_oil"):
     #         print("U checked engine oil")
     #         return render_template("next_service.html", servicedict=servicedict)
@@ -45,7 +115,7 @@ def next_service():
     #         print("U do not checked engine oil")
     #         return render_template("next_service.html", servicedict=servicedict)
     else: 
-        return render_template("next_service.html", servicedict=servicedict)
+        return render_template("next_service.html", prechecked_service_list=prechecked_service_list)
 
 @app.route("/delete_record")
 def delete_record():

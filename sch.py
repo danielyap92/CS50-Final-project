@@ -10,27 +10,27 @@ cursor.execute("SELECT max(n) FROM periodic_service")
 n = cursor.fetchall();
 n1 = [sum(t) for t in n]
 last_number_of_service = int(''.join(map(str, n1)))
-print("Last number of service: " + str(last_number_of_service))
+# print("Last number of service: " + str(last_number_of_service))
 
 current_number_service = last_number_of_service + 1
-print ("Current number of service: " + str(current_number_service))
+# print ("Current number of service: " + str(current_number_service))
 
-current_service_dict ={}
+prechecked_service_list ={}
 
 # Engine Oil
 # Eveytime service
 def engine_oil():
-        current_service_dict['engine_oil'] = 1
+        prechecked_service_list['engine_oil'] = 'checked'
 
 # Engine Oil filter
 # Eveytime service
 def engine_oil_filter():
-        current_service_dict['engine_oil_filter'] = 1
+        prechecked_service_list['engine_oil_filter'] = 'checked'
 
 # Drain Plug Gasket
 # Eveytime service
 def drain_plug_gasket():
-        current_service_dict['drain_plug_gasket'] = 1
+        prechecked_service_list['drain_plug_gasket'] = 'checked'
 
 
 # Spark plug
@@ -45,9 +45,9 @@ def spark_plug():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['spark_plug'] = 1
+        prechecked_service_list['spark_plug'] = 'checked'
     else:
-        current_service_dict['spark_plug'] = 0
+        prechecked_service_list['spark_plug'] = 'unchecked'
 
 # Air Filter
 # f = how many frequency service once
@@ -61,9 +61,9 @@ def air_filter():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['air_filter'] = 1
+        prechecked_service_list['air_filter'] = 'checked'
     else:
-        current_service_dict['air_filter'] = 0
+        prechecked_service_list['air_filter'] = 'unchecked'
 
 # Radiator Coolant
 # f = how many frequency service once
@@ -77,9 +77,9 @@ def radiator_coolant():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['radiator_coolant'] = 1
+        prechecked_service_list['radiator_coolant'] = 'checked'
     else:
-        current_service_dict['raidator_coolant'] = 0
+        prechecked_service_list['radiator_coolant'] = 'unchecked'
 
 # Brake fluid
 # f = how many frequency service once
@@ -93,9 +93,9 @@ def brake_fluid():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['brake_fluid'] = 1
+        prechecked_service_list['brake_fluid'] = 'checked'
     else:
-        current_service_dict['brake_fluid'] = 0
+        prechecked_service_list['brake_fluid'] = 'unchecked'
 
 # Fuel filter
 # f = how many frequency service once
@@ -109,9 +109,9 @@ def fuel_filter():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['fuel_filter'] = 1
+        prechecked_service_list['fuel_filter'] = 'checked'
     else:
-        current_service_dict['fuel_filter'] = 0
+        prechecked_service_list['fuel_filter'] = 'unchecked'
 
 # Transmission oil CVT
 # f = how many frequency service once
@@ -125,9 +125,9 @@ def transmission_oil_cvt():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['transmission_oil_cvt'] = 1
+        prechecked_service_list['transmission_oil_cvt'] = 'checked'
     else:
-        current_service_dict['transmission_oil_cvt'] = 0
+        prechecked_service_list['transmission_oil_cvt'] = 'unchecked'
 
 # Transmission oil filter
 # f = how many frequency service once
@@ -141,9 +141,9 @@ def transmission_oil_filter():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['transmission_oil_filter'] = 1
+        prechecked_service_list['transmission_oil_filter'] = 'checked'
     else:
-        current_service_dict['transmission_oil_filter'] = 0
+        prechecked_service_list['transmission_oil_filter'] = 'unchecked'
 
 # Gasket oil pan
 # f = how many frequency service once
@@ -157,9 +157,9 @@ def gasket_oil_pan():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['gasket_oil_pan'] = 1
+        prechecked_service_list['gasket_oil_pan'] = 'checked'
     else:
-        current_service_dict['gasket_oil_pan'] = 0
+        prechecked_service_list['gasket_oil_pan'] = 'unchecked'
 
 # Drain plug
 # f = how many frequency service once
@@ -173,9 +173,9 @@ def drain_plug():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['drain_plug'] = 1
+        prechecked_service_list['drain_plug'] = 'checked'
     else:
-        current_service_dict['drain_plug'] = 0
+        prechecked_service_list['drain_plug'] = 'unchecked'
 
 # Timing Belt Kit
 # f = how many frequency service once
@@ -189,9 +189,9 @@ def timing_belt_kit():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['timing_belt_kit'] = 1
+        prechecked_service_list['timing_belt_kit'] = 'checked'
     else:
-        current_service_dict['timing_belt_kit'] = 0
+        prechecked_service_list['timing_belt_kit'] = 'unchecked'
 
 # FEAD belt
 # f = how many frequency service once
@@ -205,9 +205,9 @@ def fead_belt():
     for element in z:
         total += element
     if total == 0:
-        current_service_dict['fead_belt'] = 1
+        prechecked_service_list['fead_belt'] = 'checked'
     else:
-        current_service_dict['timing_belt_kit'] = 0
+        prechecked_service_list['fead_belt'] = 'unchecked'
 
 engine_oil()
 engine_oil_filter()
@@ -223,7 +223,7 @@ gasket_oil_pan()
 drain_plug()
 timing_belt_kit()
 fead_belt()
-print (current_service_dict)
+
 
 #filter no need service
 # def filter_service(pair):
@@ -234,7 +234,7 @@ print (current_service_dict)
 #           return False
 
 # def current_service_list():
-#     service_list = dict(filter(filter_service, current_service_dict.items()))
+#     service_list = dict(filter(filter_service, prechecked_service_list.items()))
 #     print (service_list)
 
 # current_service_list()

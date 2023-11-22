@@ -79,7 +79,7 @@ def radiator_coolant():
     if total == 0:
         current_service_dict['radiator_coolant'] = 1
     else:
-        current_service_dict['raidator_coolant'] = 0
+        current_service_dict['radiator_coolant'] = 0
 
 # Brake fluid
 # f = how many frequency service once
@@ -207,7 +207,7 @@ def fead_belt():
     if total == 0:
         current_service_dict['fead_belt'] = 1
     else:
-        current_service_dict['timing_belt_kit'] = 0
+        current_service_dict['fead_belt'] = 0
 
 engine_oil()
 engine_oil_filter()
@@ -223,25 +223,25 @@ gasket_oil_pan()
 drain_plug()
 timing_belt_kit()
 fead_belt()
-# print (current_service_dict)
-# print ('After filter not need to service')
+print (current_service_dict)
 
-def filter_service(pair):
-     key, value = pair
-     if value == 1:
-        return True
-     else:
-          return False
+#filter no need service
+# def filter_service(pair):
+#      key, value = pair
+#      if value == 1:
+#         return True
+#      else:
+#           return False
 
-def current_service_list():
-    service_list = dict(filter(filter_service, current_service_dict.items()))
-    print (service_list)
+# def current_service_list():
+#     service_list = dict(filter(filter_service, current_service_dict.items()))
+#     print (service_list)
 
-current_service_list()
+# current_service_list()
 
 
 #Commit your changes in the database
-conn.commit()
+#conn.commit()
 
 #Closing the connection
 conn.close()
