@@ -1,16 +1,20 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    About Me
+    Confirmation
 {% endblock %}
 
 {% block main %}
-<h2>Confirmation</h2>
-{% for list in lists %}
+<h1>Confirmation</h1>
+{% for list, price in pricelist.items() %}
 
-<h3>{{ list }}</h3>
+<h3>{{ list }}: RM{{ '%0.2f' % price }}</h3>
 
 {% endfor %}
+<p>Estimate service cost = RM{{ pricelist.items()|sum(attribute="1") }} 
+<br>Excluded labour cost, taxes and inflation!</p>
+<br>
+<br>
 <form action="/confirmation" method="post">
     <input type="submit" value="Confirm to proceed service">
 </form>

@@ -114,51 +114,51 @@ def next_service():
         session['confirmation_list'] = nsil
 
         # replace word with underscore
-        lists = list
-        for i in range(len(lists)):
-            if lists[i] == 'engine_oil':
-                lists[i] = 'Engine Oil'
+        pricelist = {}
+        for i in range(len(list)):
+            if list[i] == 'engine_oil':
+                pricelist.update({'Engine Oil': 100.00 })
             
-            if lists[i] == 'engine_oil_filter':
-                lists[i] = 'Engine Oil Filter'
+            if list[i] == 'engine_oil_filter':
+                pricelist.update({'Engine Oil Filter': 12.12 })
  
-            if lists[i] == 'drain_plug_gasket':
-                lists[i] = 'Drain Plug Gasket'
+            if list[i] == 'drain_plug_gasket':
+                pricelist.update({'Drain Plug Gasket': 3.02 })
 
-            if lists[i] == 'spark_plug':
-                lists[i] = 'Spark Plug'
+            if list[i] == 'spark_plug':
+                pricelist.update({'Spark Plug': 51.00 })
  
-            if lists[i] == 'air_filter':
-                lists[i] = 'Air Filter'
+            if list[i] == 'air_filter':
+                pricelist.update({'Air Filter': 16.35 })
 
-            if lists[i] == 'radiator_coolant':
-                lists[i] = 'Radiator Coolant'
+            if list[i] == 'radiator_coolant':
+                pricelist.update({'Radiator Coolant': 41.77 })
             
-            if lists[i] == 'brake_fluid':
-                lists[i] = 'Brake Fluid'
+            if list[i] == 'brake_fluid':
+                pricelist.update({'Brake Fluid': 36.20 })
  
-            if lists[i] == 'fuel_filter':
-                lists[i] = 'Fuel Filter'
+            if list[i] == 'fuel_filter':
+                pricelist.update({'Fuel Filter': 39.10 })
 
-            if lists[i] == 'transmission_oil_cvt':
-                lists[i] = 'Transmission Oil CVT'
- 
-            if lists[i] == 'transmission_oil_filter':
-                lists[i] = 'Transmission Oil Filter'
+            if list[i] == 'transmission_oil_cvt':
+                pricelist.update({'Transmission Oil CVT': 160.00 })
 
-            if lists[i] == 'gasket_oil_pan':
-                lists[i] = 'Gasket Oil Pan'
+            if list[i] == 'transmission_oil_filter':
+                pricelist.update({'Transmission Oil Filter': 156.12 })
+
+            if list[i] == 'gasket_oil_pan':
+                pricelist.update({'Gasket Oil Pan': 66.63 })
             
-            if lists[i] == 'drain_plug':
-                lists[i] = 'Drain Plug'
- 
-            if lists[i] == 'timing_belt_kit':
-                lists[i] = 'Timing Belt Kit'
+            if list[i] == 'drain_plug':
+                pricelist.update({'Drain Plug': 26.28 })
 
-            if lists[i] == 'fead_belt':
-                lists[i] = 'FEAD Belt'
+            if list[i] == 'timing_belt_kit':
+                pricelist.update({'Timing Belt Kit': 334.68 })
+
+            if list[i] == 'fead_belt':
+                pricelist.update({'FEAD Belt': 66.99 })
  
-        return render_template("confirmation.html", lists = lists )
+        return render_template("confirmation.html", pricelist = pricelist )
 
     else: 
         conn = sqlite3.connect('car.db')
