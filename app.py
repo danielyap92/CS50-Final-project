@@ -1,5 +1,6 @@
 import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session
+from helpers import response
 
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def index():
     histories = []
 
     for i in range (len(res)):
-        sch =['n','engine_oil','engine_oil_filter','drain_plug_gasket','spark_plug','air_filter','radiator_coolant','brake_fluid','fuel_filter','transmission_oil_cvt','transmission_oil_filter','gasket_oil_pan','drain_plug','timing_belt_kit','fead_belt']
+        sch =['n','engine_oil','engine_oil_filter','drain_plug_gasket','spark_plug','air_filter','radiator_coolant','brake_fluid','fuel_filter','transmission_oil_cvt','transmission_oil_filter','gasket_oil_pan','drain_plug','timing_belt_kit','fead_belt','datetime']
         # mod value start here
         mod1 = ["yes" if value == 1
             else value for value in res[i]]
@@ -27,6 +28,7 @@ def index():
         # mod value end here
         dic = dict(zip(sch,mod2))
         histories.append(dic)
+
     
     return render_template("index.html", histories=histories)
     
@@ -365,7 +367,7 @@ def confirmation():
         cursor.execute("INSERT INTO periodic_service(engine_oil,engine_oil_filter,drain_plug_gasket,spark_plug,air_filter,radiator_coolant,brake_fluid,fuel_filter,transmission_oil_cvt,transmission_oil_filter,gasket_oil_pan,drain_plug,timing_belt_kit,fead_belt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", session['confirmation_list'])
         conn.commit()
         conn.close()
-        return redirect("/")
+        return response("Service record submitted !")
     else:
         return redirect("/next_service")
     
@@ -379,7 +381,7 @@ def delete_record():
         cursor.execute("DELETE FROM periodic_service WHERE n = (SELECT MAX(n) FROM periodic_service)")
         conn.commit()
         conn.close()
-        return redirect ("/delete_record")
+        return response("Service record deleted !")
 
     else:
         conn = sqlite3.connect('car.db')
@@ -389,7 +391,7 @@ def delete_record():
         conn.close()
         history = []
         for i in range (len(res)):
-            sch =['n','engine_oil','engine_oil_filter','drain_plug_gasket','spark_plug','air_filter','radiator_coolant','brake_fluid','fuel_filter','transmission_oil_cvt','transmission_oil_filter','gasket_oil_pan','drain_plug','timing_belt_kit','fead_belt']
+            sch =['n','engine_oil','engine_oil_filter','drain_plug_gasket','spark_plug','air_filter','radiator_coolant','brake_fluid','fuel_filter','transmission_oil_cvt','transmission_oil_filter','gasket_oil_pan','drain_plug','timing_belt_kit','fead_belt','datetime']
             # mod value start here
             mod1 = ["yes" if value == 1
                 else value for value in res[i]]

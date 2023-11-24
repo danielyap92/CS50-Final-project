@@ -10,6 +10,7 @@
     <thead>
         <tr>
           <th scope="col">N</th>
+          <th scope="col">Date & Time</th>
           <th scope="col">Engine Oil</th>
           <th scope="col">Engine Oil Filter</th>
           <th scope="col">Drain Plug Gasket</th>
@@ -30,6 +31,7 @@
         {% for item in history %}
         <tr>
           <td>{{ item.n }}</td>
+          <td>{{ item.datetime }}</td>
           <td>{{ item.engine_oil }}</td>
           <td>{{ item.engine_oil_filter }}</td>
           <td>{{ item.drain_plug_gasket }}</td>
