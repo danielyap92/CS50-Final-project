@@ -26,7 +26,7 @@ def cardict():
         # mod value end here
         dic = dict(zip(sch,mod2))
         car_dict.append(dic)
-    print (car_dict)
+   
 
 
 

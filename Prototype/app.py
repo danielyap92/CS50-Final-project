@@ -1,11 +1,11 @@
 # import os
 import sqlite3
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request
 from sch import last_number_of_service, current_number_service, prechecked_service_list
 
 
 app = Flask(__name__)
-app.secret_key = '7d5bea5c9d554fd8e600d219768f06d860c43f5f280207e5d880ad0d8323d824'
+
 
 
 @app.route("/")
@@ -14,8 +14,7 @@ def index():
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM periodic_service")
     res = cursor.fetchall();
-    conn.close()
-    
+
     histories = []
 
     for i in range (len(res)):
@@ -28,17 +27,16 @@ def index():
         # mod value end here
         dic = dict(zip(sch,mod2))
         histories.append(dic)
-    
+
     return render_template("index.html", histories=histories)
     
-    
+    conn.close()
 
 @app.route("/next_service", methods=["GET", "POST"])
 def next_service():
     if request.method == "POST":
         list = request.form.getlist("service_checkbox")
-    
-        # generate SQL value from user response
+        # below may migrate to confirmation page
         nsil = []
         if 'engine_oil' in list:
             nsil.append(1)
@@ -109,75 +107,19 @@ def next_service():
             nsil.append(1)
         else:
             nsil.append(0)
-
-        session['confirmation_list'] = nsil
-
-        # replace word with underscore
-        lists = list
-        for i in range(len(lists)):
-            if lists[i] == 'engine_oil':
-                lists[i] = 'Engine Oil'
-            
-            if lists[i] == 'engine_oil_filter':
-                lists[i] = 'Engine Oil Filter'
- 
-            if lists[i] == 'drain_plug_gasket':
-                lists[i] = 'Drain Plug Gasket'
-
-            if lists[i] == 'spark_plug':
-                lists[i] = 'Spark Plug'
- 
-            if lists[i] == 'air_filter':
-                lists[i] = 'Air Filter'
-
-            if lists[i] == 'radiator_coolant':
-                lists[i] = 'Radiator Coolant'
-            
-            if lists[i] == 'brake_fluid':
-                lists[i] = 'Brake Fluid'
- 
-            if lists[i] == 'fuel_filter':
-                lists[i] = 'Fuel Filter'
-
-            if lists[i] == 'transmission_oil_cvt':
-                lists[i] = 'Transmission Oil CVT'
- 
-            if lists[i] == 'transmission_oil_filter':
-                lists[i] = 'Transmission Oil Filter'
-
-            if lists[i] == 'gasket_oil_pan':
-                lists[i] = 'Gasket Oil Pan'
-            
-            if lists[i] == 'drain_plug':
-                lists[i] = 'Drain Plug'
- 
-            if lists[i] == 'timing_belt_kit':
-                lists[i] = 'Timing Belt Kit'
-
-            if lists[i] == 'fead_belt':
-                lists[i] = 'FEAD Belt'
- 
-        return render_template("confirmation.html", lists = lists )
-
+        print(nsil)
+        # above may migrate to confirmation page
+        return render_template("next_service.html", prechecked_service_list=prechecked_service_list) 
+    #     if request.form.get("engine_oil"):
+    #         print("U checked engine oil")
+    #         return render_template("next_service.html", servicedict=servicedict)
+    #     else:
+    #         print("U do not checked engine oil")
+    #         return render_template("next_service.html", servicedict=servicedict)
     else: 
         return render_template("next_service.html", prechecked_service_list=prechecked_service_list)
 
-
-@app.route("/confirmation", methods=["GET","POST"])
-def confirmation():
-    if request.method == "POST":
-        conn = sqlite3.connect('car.db')
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO periodic_service(engine_oil,engine_oil_filter,drain_plug_gasket,spark_plug,air_filter,radiator_coolant,brake_fluid,fuel_filter,transmission_oil_cvt,transmission_oil_filter,gasket_oil_pan,drain_plug,timing_belt_kit,fead_belt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", session['confirmation_list'])
-        conn.commit()
-        conn.close()
-        return render_template("next_service.html", prechecked_service_list=prechecked_service_list)
-    else:
-        return render_template("next_service.html", prechecked_service_list=prechecked_service_list)
-    
-
-
-@app.route("/delete_record", methods=["GET","POST"])
+@app.route("/delete_record")
 def delete_record():
     return render_template("delete_record.html")
 

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About Me
+{% endblock %}
+
+{% block main %}
+<h2>Confirmation</h2>
+{% for list in lists %}
+
+<h3>{{ list }}</h3>
+
+{% endfor %}
+<form action="/confirmation" method="post">
+    <input type="submit" value="Confirm to proceed service">
+</form>
+{% endblock %}
