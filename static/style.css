@@ -22,15 +22,52 @@ body {
     font-size: 1.5rem;
 }
 
-.confirm-text > div {
+.next-service-form {
+    background-color: #5FBDFF;
+    border: solid 1px ;
+    border-color: blue;
+    padding: 1.5% 3%;
+}
+
+.confirm-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
-.confirm-text > div > * {
-    text-align: left;
+
+.item-price, .about-me {
+    font-size: 1.5rem;
+}
+
+.total-price {
+    font-weight: bold;
+    background-color: #1EB2A6;
+    border: solid 1px ;
+    border-color: green;
+    padding: 1.5% 3%;
+}
+
+.confirm-item {
+    background-color: #5FBDFF;
+    border: solid 1px ;
+    border-color: blue;
+    padding: 1.5% 3%;
+}
+
+
+.confirm-item p {
+    margin: 0;
+}
+
+.table {
+    background-color: #FFF0CE;
+}
+
+.table-header {
+    background-color: #E1C78F;
 }
 
 @media (max-width: 1200px) {
@@ -50,9 +87,10 @@ body {
         font-size: 2.5rem;
     }
 
-    .next-service {
+    .next-service, .item-price, .about-me {
         font-size: 1rem;
     }
+
 
     .table {
         font-size: 0.6rem;

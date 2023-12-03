@@ -6,20 +6,23 @@
 
 {% block main %}
 <div class="confirm-text">
-    <div>
-        <h1>Confirmation</h1>
-        {% for list, price in pricelist.items() %}
+    <h1>Confirmation</h1>
+        <div class="confirm-item">
+            <div id="center-text">
+            {% for list, price in pricelist.items() %}
 
-        <h3>{{ list }}: RM{{ '%0.2f' % price }}</h3>
+            <p class="item-price">{{ list }}: RM{{ '%0.2f' % price }}</p>
 
-        {% endfor %}
-        <p>Estimate service cost = RM{{ '%0.2f' % pricelist.items()|sum(attribute="1") }} 
-        <br>Excluded labour cost, taxes and inflation!</p>
+            {% endfor %}
+            </div>
+        </div>
         <br>
-        <br>
-        <form action="/confirmation" method="post">
-            <input class="btn btn-primary" type="submit" value="Confirm to proceed service">
-        </form>
-    </div>
+    <p class="item-price total-price">Estimate service cost = RM{{ '%0.2f' % pricelist.items()|sum(attribute="1") }} 
+    <br>Excluded labour cost, taxes and inflation!</p>
+    <br>
+    <br>
+    <form action="/confirmation" method="post">
+        <input class="btn btn-primary" type="submit" value="Confirm to proceed service">
+    </form>
 </div>
 {% endblock %}

@@ -7,7 +7,7 @@
 {% block main %}
 <div class="next-service">
   <h2>Next Service</h2>
-  <form action="/next_service" method="post">
+  <form action="/next_service" method="post" class="next-service-form">
       <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil" {{ prechecked_service_list.engine_oil }}>
       <label for="engine_oil"> Engine Oil</label><br>
       <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil_filter" {{ prechecked_service_list.engine_oil_filter }}>
