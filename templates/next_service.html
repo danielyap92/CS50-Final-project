@@ -5,37 +5,39 @@
 {% endblock %}
 
 {% block main %}
-<h2>Next Service</h2>
-<form action="/next_service" method="post">
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil" {{ prechecked_service_list.engine_oil }}>
-    <label for="engine_oil"> Engine Oil</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil_filter" {{ prechecked_service_list.engine_oil_filter }}>
-    <label for="engine_oil_filter"> Engine Oil Filter</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="drain_plug_gasket" {{ prechecked_service_list.drain_plug_gasket }}>
-    <label for="drain_plug_gasket"> Drain Plug Gasket</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="spark_plug" {{ prechecked_service_list.spark_plug }}>
-    <label for="spark_plug"> Spark Plug</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="air_filter" {{ prechecked_service_list.air_filter }}>
-    <label for="air_filter"> Air Filter</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="radiator_coolant" {{ prechecked_service_list.radiator_coolant }}>
-    <label for="radiator_coolant"> Radiator Coolant</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="brake_fluid" {{ prechecked_service_list.brake_fluid }}>
-    <label for="brake_fluid"> Brake Fluid</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="fuel_filter" {{ prechecked_service_list.fuel_filter }}>
-    <label for="fuel_filter"> fuel filter</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="transmission_oil_cvt" {{ prechecked_service_list.transmission_oil_cvt }}>
-    <label for="transmission_oil_cvt"> Transmission Oil CVT</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="transmission_oil_filter" {{ prechecked_service_list.transmission_oil_filter }}>
-    <label for="transmission_oil_filter"> Transmission Oil Filter</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="gasket_oil_pan" {{ prechecked_service_list.gasket_oil_pan }}>
-    <label for="gasket_oil_pan"> Gasket Oil Pan</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="drain_plug" {{ prechecked_service_list.drain_plug }}>
-    <label for="drain_plug"> Drain Plug</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="timing_belt_kit" {{ prechecked_service_list.timing_belt_kit }}>
-    <label for="timing_belt_kit"> Timing Belt Kit</label><br>
-    <input type="checkbox" id="service_checkbox" name="service_checkbox" value="fead_belt" {{ prechecked_service_list.fead_belt }}>
-    <label for="fead_belt_kit"> FEAD Belt Kit</label><br><br>
-    <input type="submit" value="Submit">
+<div class="next-service">
+  <h2>Next Service</h2>
+  <form action="/next_service" method="post">
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil" {{ prechecked_service_list.engine_oil }}>
+      <label for="engine_oil"> Engine Oil</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="engine_oil_filter" {{ prechecked_service_list.engine_oil_filter }}>
+      <label for="engine_oil_filter"> Engine Oil Filter</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="drain_plug_gasket" {{ prechecked_service_list.drain_plug_gasket }}>
+      <label for="drain_plug_gasket"> Drain Plug Gasket</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="spark_plug" {{ prechecked_service_list.spark_plug }}>
+      <label for="spark_plug"> Spark Plug</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="air_filter" {{ prechecked_service_list.air_filter }}>
+      <label for="air_filter"> Air Filter</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="radiator_coolant" {{ prechecked_service_list.radiator_coolant }}>
+      <label for="radiator_coolant"> Radiator Coolant</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="brake_fluid" {{ prechecked_service_list.brake_fluid }}>
+      <label for="brake_fluid"> Brake Fluid</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="fuel_filter" {{ prechecked_service_list.fuel_filter }}>
+      <label for="fuel_filter"> fuel filter</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="transmission_oil_cvt" {{ prechecked_service_list.transmission_oil_cvt }}>
+      <label for="transmission_oil_cvt"> Transmission Oil CVT</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="transmission_oil_filter" {{ prechecked_service_list.transmission_oil_filter }}>
+      <label for="transmission_oil_filter"> Transmission Oil Filter</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="gasket_oil_pan" {{ prechecked_service_list.gasket_oil_pan }}>
+      <label for="gasket_oil_pan"> Gasket Oil Pan</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="drain_plug" {{ prechecked_service_list.drain_plug }}>
+      <label for="drain_plug"> Drain Plug</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="timing_belt_kit" {{ prechecked_service_list.timing_belt_kit }}>
+      <label for="timing_belt_kit"> Timing Belt Kit</label><br>
+      <input type="checkbox" id="service_checkbox" name="service_checkbox" value="fead_belt" {{ prechecked_service_list.fead_belt }}>
+      <label for="fead_belt_kit"> FEAD Belt Kit</label><br><br>
+      <input class="btn btn-primary" type="submit" value="Submit">
   </form> 
+</div>
 
 {% endblock %}

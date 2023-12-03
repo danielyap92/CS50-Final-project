@@ -6,52 +6,54 @@
 
 {% block main %}
 <h1>Confirm delete the following record</h1>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-          <th scope="col">N</th>
-          <th scope="col">Date & Time</th>
-          <th scope="col">Engine Oil</th>
-          <th scope="col">Engine Oil Filter</th>
-          <th scope="col">Drain Plug Gasket</th>
-          <th scope="col">Spark Plug</th>
-          <th scope="col">Air Filter</th>
-          <th scope="col">Radiator Coolant</th>
-          <th scope="col">Brake Fluid</th>
-          <th scope="col">Fuel Filter</th>
-          <th scope="col">Transmission Oil (CVT)</th>
-          <th scope="col">Transmission Oil Filter</th>
-          <th scope="col">Gasket Oil Pan</th>
-          <th scope="col">Drain Plug</th>
-          <th scope="col">Timing Belt Kit</th>
-          <th scope="col">FEAD Belt</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in history %}
-        <tr>
-          <td>{{ item.n }}</td>
-          <td>{{ item.datetime }}</td>
-          <td>{{ item.engine_oil }}</td>
-          <td>{{ item.engine_oil_filter }}</td>
-          <td>{{ item.drain_plug_gasket }}</td>
-          <td>{{ item.spark_plug }}</td>
-          <td>{{ item.air_filter }}</td>
-          <td>{{ item.radiator_coolant }}</td>
-          <td>{{ item.brake_fluid }}</td>
-          <td>{{ item.fuel_filter }}</td>
-          <td>{{ item.transmission_oil_cvt }}</td>
-          <td>{{ item.transmission_oil_filter }}</td>
-          <td>{{ item.gasket_oil_pan }}</td>
-          <td>{{ item.drain_plug }}</td>
-          <td>{{ item.timing_belt_kit }}</td>
-          <td>{{ item.fead_belt }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+<div class="table-responsive-lg">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th scope="col">N</th>
+            <th scope="col">Date & Time</th>
+            <th scope="col">Engine Oil</th>
+            <th scope="col">Engine Oil Filter</th>
+            <th scope="col">Drain Plug Gasket</th>
+            <th scope="col">Spark Plug</th>
+            <th scope="col">Air Filter</th>
+            <th scope="col">Radiator Coolant</th>
+            <th scope="col">Brake Fluid</th>
+            <th scope="col">Fuel Filter</th>
+            <th scope="col">Transmission Oil (CVT)</th>
+            <th scope="col">Transmission Oil Filter</th>
+            <th scope="col">Gasket Oil Pan</th>
+            <th scope="col">Drain Plug</th>
+            <th scope="col">Timing Belt Kit</th>
+            <th scope="col">FEAD Belt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in history %}
+            <tr>
+            <td>{{ item.n }}</td>
+            <td>{{ item.datetime }}</td>
+            <td>{{ item.engine_oil }}</td>
+            <td>{{ item.engine_oil_filter }}</td>
+            <td>{{ item.drain_plug_gasket }}</td>
+            <td>{{ item.spark_plug }}</td>
+            <td>{{ item.air_filter }}</td>
+            <td>{{ item.radiator_coolant }}</td>
+            <td>{{ item.brake_fluid }}</td>
+            <td>{{ item.fuel_filter }}</td>
+            <td>{{ item.transmission_oil_cvt }}</td>
+            <td>{{ item.transmission_oil_filter }}</td>
+            <td>{{ item.gasket_oil_pan }}</td>
+            <td>{{ item.drain_plug }}</td>
+            <td>{{ item.timing_belt_kit }}</td>
+            <td>{{ item.fead_belt }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br>
 <form action="/delete_record" method="post">
-    <input type="submit" value="Confirm to delete record">
+    <input class="btn btn-primary" style="background-color: red; border-color: brown;" type="submit" value="Confirm to delete record">
 </form>
 {% endblock %}

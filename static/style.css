@@ -1,0 +1,61 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.apptitle {
+    height: 100px;
+    width: 100%;
+    background-color: #86a3eb;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.next-service {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.confirm-text > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-text > div > * {
+    text-align: left;
+}
+
+@media (max-width: 1200px) {
+    .table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .table {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px){
+    .apptitle {
+        font-size: 2.5rem;
+    }
+
+    .next-service {
+        font-size: 1rem;
+    }
+
+    .table {
+        font-size: 0.6rem;
+    }
+
+}
